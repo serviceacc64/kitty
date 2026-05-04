@@ -17,7 +17,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   
-  --background-image-hero: linear-gradient(135deg, oklch(0.7 0.18 190) 0%, oklch(0.6 0.25 210) 100%);
+  --background-image-hero: linear-gradient(135deg, oklch(0.4 0.15 190) 0%, oklch(0.3 0.2 210) 100%);
   --background-image-rainbow: linear-gradient(
     to right,
     #ff6b6b,
@@ -89,16 +89,20 @@
 }
 
 @layer utilities {
+  .bg-hero {
+    background-image: linear-gradient(135deg, oklch(0.4 0.15 190) 0%, oklch(0.3 0.2 210) 100%);
+  }
+
   .glass {
     @apply bg-card/60 backdrop-blur-2xl border border-white/10;
   }
   
   .glass-card {
-    @apply bg-card/40 backdrop-blur-md border border-white/20 shadow-elegant hover:bg-card/50 transition-all duration-300;
+    @apply bg-card/60 backdrop-blur-md border border-black/5 dark:border-white/5 shadow-elegant hover:bg-card/80 transition-all duration-300;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-primary via-primary to-secondary font-bold;
+    @apply bg-clip-text text-transparent bg-linear-to-br from-primary via-primary to-secondary font-bold;
   }
 
   .text-rainbow {

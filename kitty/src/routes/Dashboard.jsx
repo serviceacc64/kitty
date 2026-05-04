@@ -63,7 +63,7 @@ const Dashboard = () => {
       {/* Hero Section */}
       <section className="relative group">
         <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 transition-opacity group-hover:opacity-30 duration-700" />
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-hero p-10 md:p-14 text-white shadow-2xl border border-white/10">
+        <div className="relative overflow-hidden rounded-[2rem] bg-hero p-10 md:p-14 text-white shadow-2xl border border-white/10">
           <div className="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-white/70 font-bold tracking-[0.2em] uppercase text-xs">
