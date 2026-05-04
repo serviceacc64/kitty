@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: oklch(0.7 0.18 190);
+  --color-secondary: oklch(0.65 0.25 210);
+  --color-accent: oklch(0.85 0.15 180);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  
+  --gradient-hero: linear-gradient(135deg, oklch(0.7 0.18 190) 0%, oklch(0.6 0.25 210) 100%);
+  --gradient-rainbow: linear-gradient(
+    to right,
+    #ff6b6b,
+    #feca57,
+    #ff9ff3,
+    #54a0ff,
+    #48dbfb,
+    #1dd1a1,
+    #ff6b6b
+  );
+
+  --gradient-glow: radial-gradient(circle at center, oklch(0.7 0.18 190 / 0.15) 0%, transparent 70%);
+
+  
+  --shadow-elegant: 0 20px 40px -15px oklch(0.7 0.18 190 / 0.25);
+  --shadow-glow: 0 0 20px 0 oklch(0.7 0.18 190 / 0.3);
+  
+  --radius-2xl: 1.5rem;
+  --radius-xl: 1rem;
+  --radius-lg: 0.75rem;
+}
+
+@layer base {
+  :root {
+    --background: oklch(0.99 0.01 190);
+    --foreground: oklch(0.15 0.05 190);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.15 0.05 190);
+    --muted: oklch(0.96 0.02 190);
+    --muted-foreground: oklch(0.45 0.05 190);
+    --border: oklch(0.92 0.03 190);
+    --input: oklch(0.92 0.03 190);
+  }
+
+  .dark {
+    --background: oklch(0.12 0.03 190);
+    --foreground: oklch(0.98 0.01 190);
+    --card: oklch(0.16 0.04 190);
+    --card-foreground: oklch(0.98 0.01 190);
+    --muted: oklch(0.2 0.04 190);
+    --muted-foreground: oklch(0.65 0.05 190);
+    --border: oklch(0.22 0.04 190);
+    --input: oklch(0.22 0.04 190);
+    
+    --shadow-elegant: 0 20px 40px -20px oklch(0 0 0 / 0.5);
+  }
+
+  * {
+    @apply border-border outline-none transition-colors duration-200;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: 'Outfit', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-2xl border border-white/10 dark:border-white/5;
+  }
+  
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-md border border-white/20 dark:border-white/5 shadow-elegant hover:bg-card/50 transition-all duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-primary via-primary to-secondary font-bold;
+  }
+
+  .text-rainbow {
+    @apply bg-clip-text text-transparent bg-gradient-rainbow bg-[length:200%_auto] animate-rainbow font-black inline-block;
+  }
+
+
+  .bg-rainbow {
+    @apply bg-gradient-rainbow bg-[length:200%_auto] animate-rainbow;
+  }
+
+  .glow {
+    @apply relative after:absolute after:inset-0 after:rounded-[inherit] after:shadow-glow after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500;
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-rainbow {
+    animation: rainbow 5s linear infinite;
+  }
+}
+
