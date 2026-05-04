@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --color-primary: oklch(0.7 0.18 190);
   --color-secondary: oklch(0.65 0.25 210);
@@ -19,8 +17,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   
-  --gradient-hero: linear-gradient(135deg, oklch(0.7 0.18 190) 0%, oklch(0.6 0.25 210) 100%);
-  --gradient-rainbow: linear-gradient(
+  --background-image-hero: linear-gradient(135deg, oklch(0.7 0.18 190) 0%, oklch(0.6 0.25 210) 100%);
+  --background-image-rainbow: linear-gradient(
     to right,
     #ff6b6b,
     #feca57,
@@ -31,15 +29,28 @@
     #ff6b6b
   );
 
-  --gradient-glow: radial-gradient(circle at center, oklch(0.7 0.18 190 / 0.15) 0%, transparent 70%);
+  --background-image-glow: radial-gradient(circle at center, oklch(0.7 0.18 190 / 0.15) 0%, transparent 70%);
 
-  
   --shadow-elegant: 0 20px 40px -15px oklch(0.7 0.18 190 / 0.25);
   --shadow-glow: 0 0 20px 0 oklch(0.7 0.18 190 / 0.3);
   
   --radius-2xl: 1.5rem;
   --radius-xl: 1rem;
   --radius-lg: 0.75rem;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-rainbow: rainbow 5s linear infinite;
 }
 
 @layer base {
@@ -72,19 +83,18 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Outfit', sans-serif;
-    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-card/60 backdrop-blur-2xl border border-white/10 dark:border-white/5;
+    @apply bg-card/60 backdrop-blur-2xl border border-white/10;
   }
   
   .glass-card {
-    @apply bg-card/40 backdrop-blur-md border border-white/20 dark:border-white/5 shadow-elegant hover:bg-card/50 transition-all duration-300;
+    @apply bg-card/40 backdrop-blur-md border border-white/20 shadow-elegant hover:bg-card/50 transition-all duration-300;
   }
 
   .text-gradient {
@@ -92,35 +102,15 @@
   }
 
   .text-rainbow {
-    @apply bg-clip-text text-transparent bg-gradient-rainbow bg-[length:200%_auto] animate-rainbow font-black inline-block;
+    @apply bg-clip-text text-transparent bg-rainbow bg-[length:200%_auto] animate-rainbow font-black inline-block;
   }
 
-
-  .bg-rainbow {
-    @apply bg-gradient-rainbow bg-[length:200%_auto] animate-rainbow;
+  .bg-rainbow-animate {
+    @apply bg-rainbow bg-[length:200%_auto] animate-rainbow;
   }
 
   .glow {
     @apply relative after:absolute after:inset-0 after:rounded-[inherit] after:shadow-glow after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500;
-  }
-
-  .float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-
-  @keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .animate-rainbow {
-    animation: rainbow 5s linear infinite;
   }
 }
 
