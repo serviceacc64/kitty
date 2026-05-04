@@ -114,7 +114,7 @@
   }
 
   .glow {
-    @apply relative after:absolute after:inset-0 after:rounded-[inherit] after:shadow-glow after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500;
+    @apply relative after:absolute after:inset-0 after:rounded-[inherit] after:shadow-glow after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500 after:pointer-events-none;
   }
 }
 
