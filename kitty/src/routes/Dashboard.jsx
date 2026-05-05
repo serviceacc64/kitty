@@ -75,7 +75,7 @@ const Dashboard = () => {
                 {stats.totalMoney.toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </h2>
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
               <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-5 flex flex-col items-center gap-1 border border-white/10 min-w-[120px] transition-transform hover:scale-105">
                 <Users size={24} className="text-white/60" />
@@ -86,12 +86,12 @@ const Dashboard = () => {
                 <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-5 flex flex-col items-center gap-1 border border-white/10 min-w-[120px] transition-transform hover:scale-105">
                   <Trophy size={24} className="text-yellow-400" />
                   <span className="text-2xl font-black text-rainbow">{stats.topContributor.name.split(' ')[0]}</span>
-                  <span className="text-[10px] uppercase font-black tracking-widest text-white/40">MVP</span>
+                  <span className="text-[10px] uppercase font-black tracking-widest text-white/40">Pinaka Bading</span>
                 </div>
               )}
             </div>
           </div>
-          
+
           {/* Decorative shapes */}
           <div className="absolute -right-16 -bottom-16 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" />
           <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/30 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
