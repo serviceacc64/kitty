@@ -86,7 +86,7 @@ const Dashboard = () => {
                 <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-5 flex flex-col items-center gap-1 border border-white/10 min-w-[120px] transition-transform hover:scale-105">
                   <Trophy size={24} className="text-yellow-400" />
                   <span className="text-2xl font-black text-rainbow">{stats.topContributor.name.split(' ')[0]}</span>
-                  <span className="text-[10px] uppercase font-black tracking-widest text-white/40">Pinaka Bading</span>
+                  <span className="text-[10px] uppercase font-black tracking-widest text-white/40">Pabida</span>
                 </div>
               )}
             </div>
